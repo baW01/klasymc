@@ -12,6 +12,10 @@ Ten plik jest pojedynczym miejscem do śledzenia postępu:
 - [x] Opis klas bazowych i specjalizacji.
 - [x] Opis systemu statusów (`Combat Tags`) i reakcji między skillami.
 - [x] Przykładowa konfiguracja skilla (`fireball`) z kosztami, cooldownem, efektami i reakcjami.
+- [x] Szkielet projektu Java/Gradle (`lib`) z testami JUnit.
+- [x] Combat Core v1 (bazowy damage engine + reakcje `WET_LIGHTNING`, `SHATTER`, `TOXIC_EXPLOSION`).
+- [x] Class Resources v1 (`MANA`, `RAGE`, `ENERGY`, `COMBO_POINTS`) z obsługą kosztów i zużycia.
+- [x] Testy jednostkowe dla reakcji i zarządzania zasobami.
 
 ## WYMAGA POPRAWEK
 
@@ -20,6 +24,8 @@ Ten plik jest pojedynczym miejscem do śledzenia postępu:
 - [ ] Doprecyzowanie zasad balansu reakcji statusów (np. mnożniki obrażeń i limity efektów łańcuchowych).
 - [ ] Doprecyzowanie zasad proceduralnego generatora itemów (wagi prefiksów/sufiksów i ograniczenia rolli).
 - [ ] Ustalenie jednoznacznych definicji `Tier` i `Rank` dla mobów (żeby uniknąć rozjazdu pojęć).
+- [ ] Doprecyzowanie, które reakcje konsumują status (`FROZEN` już konsumowany przez `SHATTER`, pozostałe do decyzji).
+- [ ] Dodanie konfiguracji zewnętrznej reakcji i progów (obecnie wartości są zahardkodowane w kodzie).
 
 ## NIEZROBIONE
 
@@ -35,11 +41,11 @@ Ten plik jest pojedynczym miejscem do śledzenia postępu:
 - [ ] Skill Mutation (warianty działania skilli).
 
 ### Combat i statusy
-- [ ] Silnik obrażeń ze skalowaniem statystyk.
+- [x] Silnik obrażeń ze skalowaniem statystyk (bazowy scaling pod `intelligence`).
 - [ ] Nakładanie i odświeżanie statusów (`BURNING`, `FROZEN`, `WET`, itd.).
-- [ ] Silnik reakcji między statusami i typami ataków (`SHATTER`, `TOXIC_EXPLOSION`, `THERMAL_SHOCK`).
-- [ ] Obsługa zasobów klas (`MANA`, `RAGE`, `ENERGY`).
-- [ ] System combo pointów i finisherów dla Rogue.
+- [ ] Silnik reakcji między statusami i typami ataków (`SHATTER`, `TOXIC_EXPLOSION`, `THERMAL_SHOCK`) — częściowo (brakuje `THERMAL_SHOCK` i szerszego katalogu).
+- [x] Obsługa zasobów klas (`MANA`, `RAGE`, `ENERGY`).
+- [x] System combo pointów dla Rogue (naliczanie, cap, zużycie; finisher damage scaling nadal do zrobienia).
 
 ### Moby i bossy
 - [ ] API custom mobów (level/tier/rank).
@@ -54,8 +60,8 @@ Ten plik jest pojedynczym miejscem do śledzenia postępu:
 - [ ] Relic system (sloty i modyfikacje skilli).
 
 ### Jakość i testy
-- [ ] Szkielet projektu z buildem i testami automatycznymi.
-- [ ] Testy jednostkowe silnika obrażeń, statusów i reakcji.
+- [x] Szkielet projektu z buildem i testami automatycznymi.
+- [x] Testy jednostkowe silnika obrażeń, statusów i reakcji.
 - [ ] Testy integracyjne przepływów klas/specjalizacji.
 
 ## KRYTERIA GOTOWOŚCI MVP (DO WDROŻENIA)
@@ -79,7 +85,7 @@ Ten plik jest pojedynczym miejscem do śledzenia postępu:
 
 1. [ ] **Combat Core v1**: damage + statusy + reakcje (fundament całego systemu).
 2. [ ] **Skill Engine v1**: cast, cooldown, koszt zasobu, walidacja configu.
-3. [ ] **Class Resources v1**: MANA/RAGE/ENERGY + combo points Rogue.
+3. [x] **Class Resources v1**: MANA/RAGE/ENERGY + combo points Rogue.
 4. [ ] **Boss Phase v1**: progi HP, zestawy zachowań, proste aggro i taunt.
 5. [ ] **Item Runtime v1**: rarity, podstawowe statystyki i pierwsze unique efekty.
 6. [ ] **Test Harness v1**: testy jednostkowe dla modułów core.
